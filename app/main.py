@@ -4,6 +4,7 @@
 from typing import Optional
 from pydantic import BaseModel
 from fastapi import FastAPI
+import uvicorn
 
 pi = "3.14"
 app = FastAPI()
@@ -22,4 +23,5 @@ def read_root():
 def take_input(q:Optional[int]=3):
     return float(pi[:q+2])
 
-# Example: http://127.0.0.1:8000/inp?q=32 
+if __name__ == '__main__':
+     uvicorn.run(app)
